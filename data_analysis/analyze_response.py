@@ -1,5 +1,7 @@
 import numpy as np
 from pathlib import Path
+import matplotlib.pyplot as plt
+
 
 # Constants defined here:
 category_mapping = {'House': 10, 'Visage': 20, 'Animal': 30, 'Scene': 40, 'Tool': 50, 'Scramble': 90}
@@ -33,8 +35,6 @@ def calculate_mean_activation(category, region, time_bin):
     categories = np.load(storage_location / 'stimgroups.npy')
     brodmann_areas = np.load(storage_location / "brodmann_areas.npy")
 
-    category_keys = list(category_mapping)
-    num_categories = len(category_mapping)
     category_num = category_mapping[category]
 
     # CALCULATE THE MEAN
@@ -75,24 +75,43 @@ def category_impact(category, region):
     noise_activations = calculate_mean_activation('Scramble', region, 'All')
 
     # calculate the factor increase for every time bin
-    factor_increase = np.divide(category_activations, noise_activations) # (32,)
+    factor_increase_noise = np.divide(category_activations, noise_activations) # (32,)
 
-    # average out the factor increase
-    avg_factor_increase = np.mean(factor_increase) # scalar fraction representing percentage change
 
-    return factor_increase, avg_factor_increase
+
+    # calculate the activations for all other categories
+    num_categories = len(category_mapping)
+    activations_other = np.zeros((num_categories - 1, 32))
+
+    idx = 0
+    for key in category_mapping:
+        if key == category:
+            continue
+        activations_other[idx][:] = calculate_mean_activation(key, region, 'All')
+        idx += 1
+
+    # average the activations for all other categories
+    activations_other = np.mean(activations_other, axis=0)
+
+    # plot the two differences
+    factor_increase_other = np.divide(category_activations, activations_other)
+    plt.figure()
+    plt.plot(factor_increase_other)
+
+    plt.plot(factor_increase_noise)
+    plt.title('Factor Increase for {0} in the {1} region'.format(category, region))
+    ax = plt.gca()
+
+    # create a line @ y = 1
+    x1 = np.ones((32, 1))
+    plt.plot(x1, 'r--')
+    ax.legend(['Other', 'Noise'])
+
+    plt.show()
+
+
 
 
 
 if __name__ == '__main__':
-    # categories are: House, Visage, Animal, Scene, Tool, Scramble
-    # regions: V1, V2, V3, V4, IT, All
-    # time bin : 1-32, All
-
-    activations = calculate_mean_activation('House', 'V1', 'All')
-
-    factor_increase, avg_factor_increase = category_impact('House', 'V1')
-
-    brodmann_areas, num_unique = get_brodmann_areas()
-
-    num_electrodes_in_visual = get_num_electrodes_in_area('V1')
+    category_impact('Scene', 'IT')
