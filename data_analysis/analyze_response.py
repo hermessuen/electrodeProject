@@ -6,7 +6,9 @@ from scipy.stats import wilcoxon
 # Constants defined here:
 category_mapping = {'House': 10, 'Visage': 20, 'Animal': 30, 'Scene': 40, 'Tool': 50, 'Scramble': 90}
 
-brodmann_area_mapping = {'V1': 17, 'V2': 18, 'V3': 19, 'V4': 19, 'IT': 20, 'Primary Visual': 5}
+# 37 and 34 deal with Faces and Scenes respectively in the brain
+brodmann_area_mapping = {'V1': 17, 'V2': 18, 'V3': 19, 'V4': 19, 'IT': 20,
+                         'Fusiform Gyrus': 37, 'Parahippocampal gyrus': 34}
 storage_location = Path(
     "C:/Users/hsuen/Desktop/bigData/brainscore_img_elec_time_70hz150/")
 
