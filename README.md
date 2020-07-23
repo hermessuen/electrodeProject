@@ -20,12 +20,14 @@ In order to upload without errors, make sure that you have the proper permission
 particular bucket
 
 # Data Analysis 
-There are 4 data analysis functions:
+There are 5 data analysis functions:
 
 1. calculate_mean_activations
 2. category_impact
 3. get_brodmann_areas
 4. get_num_electrodes_in_area
+5. perform_sign_test
+
 
 The first one calculates the mean activations of the responses. You pass in a category, the Visual area of interest (V1-IT), and the time bin. Alternatively, you can pass in the parameter of "All" which means it will average across all electrodes. You can also pass in "All" for the time bin parameter which will return all of the time bin responses for a given electrode. 
 
@@ -34,5 +36,7 @@ The first one calculates the mean activations of the responses. You pass in a ca
 "get_brodmann_areas" simply returns the number of unique brodmann areas in the data set
 
 "get_num_electrodes_in_area" returns the number of electrodes contained in a given brodmann area. 
+
+"perform_sign_test" runs a Wilconsox signed rank test on the activation data compared to either Noise or the mean of the activations for all the other categories to see if there is a statistically significant difference for a particular category.
 
 
