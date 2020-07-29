@@ -134,7 +134,7 @@ def perform_sign_test(category, region, noise):
         # get the mean activation values for a generic noise category
         activations_other = calculate_mean_activation('Scramble', region, 'All')
 
-    t_statistic, p_value_of_t = wilcoxon(category_activations[:30], activations_other[:30])
+    t_statistic, p_value_of_t = wilcoxon(category_activations, activations_other)
     print('The p-value for rejecting the Null Hypothesis that {0} & {1} come from the same distribution: '.format(category, noise))
     print(p_value_of_t)
     return p_value_of_t
@@ -175,9 +175,9 @@ def scenes_and_faces(region):
     factor_increase_other_scene = np.divide(scene_activations, activations_other_scene)
     factor_increase_other_face = np.divide(face_activations, activations_other_face)
     plt.figure()
-    plt.plot(factor_increase_other_scene[:30])
+    plt.plot(factor_increase_other_scene)
 
-    plt.plot(factor_increase_other_face[:30])
+    plt.plot(factor_increase_other_face)
     plt.title('Factor Increase for Faces and Scenes in region {0}'.format(region))
     plt.xlabel('Time in ms')
     ax = plt.gca()
@@ -187,5 +187,4 @@ def scenes_and_faces(region):
 
 
 if __name__ == '__main__':
-    perform_sign_test('Visage', 'IT', 'Other')
-    perform_sign_test('Scene', 'IT', 'Other')
+    scenes_and_faces('Fusiform Gyrus')
