@@ -37,7 +37,7 @@ from brainscore import score_model
 #           'mobilenet_v1_1.0_128']
 
 
-models = ['xception']
+models = ['alexnet']
 
 # from tensorflow.compat.v1 import ConfigProto
 # from tensorflow.compat.v1 import InteractiveSession
