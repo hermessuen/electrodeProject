@@ -31,7 +31,7 @@ from brainscore import score_model
 
 #models = ['alexnet']
 
-models = ['CORnet-S', 'CORnet-R', 'CORnet-Z', 'CORnet-R2', 'squeezenet1_0', 'squeezenet1_1',
+models = ['squeezenet1_0', 'squeezenet1_1',
           'xception', 'densenet-121', 'densenet-169', 'densenet-201', 'inception_v1',
           'inception_v2', 'inception_v3', 'inception_v4', 'inception_resnet_v2',
           'resnet-18', 'resnet-34', 'resnet-50-pytorch', 'resnet-50_v1',
