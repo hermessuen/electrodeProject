@@ -25,21 +25,19 @@ import keras
 _logger = logging.getLogger(__name__)
 
 
-
-import brainscore_scoring.brainscore_functions as bf
 from brainscore import score_model
 
-#models = ['alexnet']
-
-models = ['squeezenet1_0', 'squeezenet1_1',
-          'xception', 'densenet-121', 'densenet-169', 'densenet-201', 'inception_v1',
-          'inception_v2', 'inception_v3', 'inception_v4', 'inception_resnet_v2',
-          'resnet-18', 'resnet-34', 'resnet-50-pytorch', 'resnet-50_v1',
-          'resnet-101_v1', 'resnet-152_v1', 'resnet-50_v2', 'resnet-101_v2',
-          'resnet-152_v2', 'resnet-50-robust', 'vgg-16', 'vgg-19', 'vggface',
-          'bagnet9', 'bagnet17', 'bagnet33', 'nasnet_mobile', 'nasnet_large',
-          'pnasnet_large', 'mobilenet_v1_1.0_224', 'mobilenet_v1_1.0_192', 'mobilenet_v1_1.0_160',
-          'mobilenet_v1_1.0_128']
+models = ['alexnet']
+#
+# models = ['squeezenet1_0', 'squeezenet1_1',
+#           'xception', 'densenet-121', 'densenet-169', 'densenet-201', 'inception_v1',
+#           'inception_v2', 'inception_v3', 'inception_v4', 'inception_resnet_v2',
+#           'resnet-18', 'resnet-34', 'resnet-50-pytorch', 'resnet-50_v1',
+#           'resnet-101_v1', 'resnet-152_v1', 'resnet-50_v2', 'resnet-101_v2',
+#           'resnet-152_v2', 'resnet-50-robust', 'vgg-16', 'vgg-19', 'vggface',
+#           'bagnet9', 'bagnet17', 'bagnet33', 'nasnet_mobile', 'nasnet_large',
+#           'pnasnet_large', 'mobilenet_v1_1.0_224', 'mobilenet_v1_1.0_192', 'mobilenet_v1_1.0_160',
+#           'mobilenet_v1_1.0_128']
 
 
 
