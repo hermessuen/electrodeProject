@@ -1,5 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=neural-array
+#SBATCH --array=0-2
 #SBATCH --time=96:00:00
 #SBATCH --ntasks=1
 #SBATCH --mem=150G
@@ -10,6 +11,7 @@ for model in alexnet densenet169 CORnet-Z; do
 	i=$[$i+1]
 done
 
-#to output the number of iterations for line 4
-echo ${#model_list[@]}
-exit
+echo "My SLURM_ARRAY_TASK_ID: " $SLURM_ARRAY_TASK_ID
+echo "Running model ${model_list[$SLURM_ARRAY_TASK_ID]}"
+
+python score_models.py "${model_list[$SLURM_ARRAY_TASK_ID]}"
