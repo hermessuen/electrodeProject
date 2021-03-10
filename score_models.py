@@ -20,7 +20,7 @@ from brainscore.metrics.regression import CrossRegressedCorrelation, pls_regress
 from brainscore.utils import LazyLoad
 import tensorflow as tf
 import keras
-#import os
+import sys
 
 _logger = logging.getLogger(__name__)
 
@@ -54,14 +54,14 @@ os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 
 from candidate_models.model_commitments import brain_translated_pool
 
-for x in models:
-    model = brain_translated_pool[x]
-    try:
-        score = score_model(model_identifier=x, model=model, benchmark_identifier='aru.Kuzovkin2018-pls')
 
-    except Exception as e:
-        print('SOMETHING WENT WRONG. Tried to score {0} and failed. Here is the Exception'.format(x))
-        print(e)
+model = brain_translated_pool[sys.argv[1]]
+try:
+    score = score_model(model_identifier=sys.argv[1], model=model, benchmark_identifier='aru.Kuzovkin2018-pls')
+
+except Exception as e:
+    print('SOMETHING WENT WRONG. Tried to score {0} and failed. Here is the Exception'.format(sys.argv[1]))
+    print(e)
 
 
 print('Done scoring')
