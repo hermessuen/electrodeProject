@@ -6,7 +6,7 @@
 #SBATCH --mem=150G
 
 i=0
-for model in alexnet densenet169 CORnet-Z; do
+for model in alexnet densenet-169 resnet-18; do
 	model_list[$i]="$model"
 	i=$[$i+1]
 done
