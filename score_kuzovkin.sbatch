@@ -1,12 +1,12 @@
 #!/bin/bash
 #SBATCH --job-name=neural-array
-#SBATCH --array=0-2
+#SBATCH --array=0-1
 #SBATCH --time=96:00:00
 #SBATCH --ntasks=1
 #SBATCH --mem=20000
 
 i=0
-for model in alexnet; do
+for model in alexnet, resnet-18; do
 	model_list[$i]="$model"
 	i=$[$i+1]
 done
