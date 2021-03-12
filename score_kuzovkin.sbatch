@@ -3,7 +3,7 @@
 #SBATCH --array=0-2
 #SBATCH --time=96:00:00
 #SBATCH --ntasks=1
-#SBATCH --mem=300G
+#SBATCH --mem=20000
 
 i=0
 for model in alexnet densenet-169 resnet-18; do
