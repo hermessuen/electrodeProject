@@ -39,6 +39,9 @@ resnet18-deepcluster resnet18-contrastive_multiview; do
 	i=$[$i+1]
 done
 
+echo ${#model_list[@]}
+exit
+
 echo "My SLURM_ARRAY_TASK_ID: " $SLURM_ARRAY_TASK_ID
 echo "Running model ${model_list[$SLURM_ARRAY_TASK_ID]}"
 
