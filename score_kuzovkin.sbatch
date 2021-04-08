@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=neural-array
-#SBATCH --array=0-33
+#SBATCH --array=0-49
 #SBATCH --time=92:00:00
 #SBATCH --ntasks=1
 #SBATCH --mem=300000
@@ -39,8 +39,7 @@ resnet18-deepcluster resnet18-contrastive_multiview; do
 	i=$[$i+1]
 done
 
-echo ${#model_list[@]}
-exit
+
 
 echo "My SLURM_ARRAY_TASK_ID: " $SLURM_ARRAY_TASK_ID
 echo "Running model ${model_list[$SLURM_ARRAY_TASK_ID]}"
