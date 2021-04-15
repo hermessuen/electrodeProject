@@ -28,7 +28,7 @@ _logger = logging.getLogger(__name__)
 from brainscore import score_model
 
 models = ['alexnet']
-#
+
 # models = ['squeezenet1_0', 'squeezenet1_1',
 #           'xception', 'densenet-121', 'densenet-169', 'densenet-201', 'inception_v1',
 #           'inception_v2', 'inception_v3', 'inception_v4', 'inception_resnet_v2',
@@ -49,13 +49,14 @@ models = ['alexnet']
 # config.gpu_options.allow_growth = True
 # session = InteractiveSession(config=config)
 
-os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
+#os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 
 
 from candidate_models.model_commitments import brain_translated_pool
 
 
 model = brain_translated_pool[sys.argv[1]]
+
 try:
     score = score_model(model_identifier=sys.argv[1], model=model, benchmark_identifier='aru.Kuzovkin2018-pls')
 
