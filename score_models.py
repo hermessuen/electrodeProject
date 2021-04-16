@@ -49,7 +49,7 @@ models = ['alexnet']
 # config.gpu_options.allow_growth = True
 # session = InteractiveSession(config=config)
 
-#os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
+os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
 
 from candidate_models.model_commitments import brain_translated_pool
