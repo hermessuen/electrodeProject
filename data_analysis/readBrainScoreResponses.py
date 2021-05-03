@@ -43,20 +43,9 @@ def get_all_scores():
     plt.title("Scores")
     plt.xticks(x_pos, models)
 
-def read_CORnet_scores():
-
-    # file = open(
-    #     loc_scores + 'candidate_models.model_commitments.cornets.CORnetCommitment.look_at_cached/model_identifier=CORnet-R,stimuli_identifier=aru.Kuzovkin2018-1trials.pkl', 'rb')
-
-    file = open(
-             loc_scores + 'model_tools.brain_transformation.neural.LayerScores._call/model_identifier=squeezenet1_0,benchmark_identifier=IT,visual_degrees=8.pkl', 'rb')
-
-    score = pickle.load(file)
-    print('here')
-
 
 if __name__ == "__main__":
-    read_CORnet_scores()
+    get_all_scores()
 
 
 

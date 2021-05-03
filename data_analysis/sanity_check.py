@@ -23,6 +23,9 @@ We MIGHT also want to run Wilcoxon signed rank test
 
 '''
 
+# IT is the region 20!!
+
+
 # DEFINE CONSTANTS
 category_mapping = {'House': 10, 'Visage': 20, 'Animal': 30, 'Scene': 40, 'Tool': 50, 'Scramble': 90}
 brodmann_area_mapping = {'V1': 17, 'V2': 18, 'V3': 19, 'V4': 19, 'IT': 20,
@@ -64,6 +67,39 @@ ppa_z_left = [-12, -6]
 ppa_x_right = [24, 32]
 ppa_y_right = [-54, -45]
 ppa_z_right = [-12, -6]
+
+# bounding box IT MNI coordinates:
+it_left_a_x = [-29, -20]
+it_left_a_y = [-28, -7]
+it_left_a_z = [-16, -2]
+
+it_left_b_x = [-19, -13]
+it_left_b_y = [-8, 3]
+it_left_b_z = [-19, -15]
+
+it_right_a_x = [13, 19]
+it_right_a_y = [-30, -8]
+it_right_a_z = [-16, -2]
+
+it_right_b_x = [20, 29]
+it_right_b_y = [-9, 2]
+it_right_b_z = [-20, -16]
+
+
+def get_IT_MNI():
+    print('here')
+    mni = mni_coords
+    it_left_a_idx = list(np.where((mni[:, 0] >= it_left_a_x[0]) & (mni[:, 0] <= it_left_a_x[1]) &
+                                  (mni[:, 1] >= it_left_a_y[0]) & (mni[:, 1] <= it_left_a_y[1]) & (mni[:, 2] >= it_left_a_z[0]) & (mni[:, 2] <= it_left_a_z[1]))[0])
+
+
+    it_left_b_idx = list(np.where((mni[:, 0] >= -19) & (mni[:, 0] <= -13) & (mni[:, 1] >=  -8) & (mni[:, 1] <=  3) & (mni[:, 2] >= -19) & (mni[:, 2] <= -15))[0])
+
+    it_right_a_idx = list(np.where((mni[:, 0] >=  13) & (mni[:, 0] <=  19) & (mni[:, 1] >= -30) & (mni[:, 1] <= -8) & (mni[:, 2] >= -16) & (mni[:, 2] <=  -2))[0])
+    it_right_b_idx = list(np.where((mni[:, 0] >=  20) & (mni[:, 0] <=  29) & (mni[:, 1] >=  -9) & (mni[:, 1] <=  2) & (mni[:, 2] >= -20) & (mni[:, 2] <= -16))[0])
+
+    it_idx = list(set(it_left_a_idx + it_left_b_idx + it_right_a_idx + it_right_b_idx))
+    return it_idx
 
 
 def get_IT_electrodes():
@@ -465,10 +501,11 @@ def get_unique_subjects(electrodes):
     unique_subs = set(sub_ids)
     return unique_subs
 
+
 if __name__ == '__main__':
-    #plot_average_response()
+    get_IT_MNI()
     #list_responsive_electrodes()
-    list_responsive_electrodes()
+    print('here')
 
 
 
