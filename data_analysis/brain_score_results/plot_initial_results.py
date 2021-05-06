@@ -87,6 +87,6 @@ def export_to_csv():
 
 
 if __name__ == '__main__':
-    #export_to_csv()
-    x = get_layer_matches()
+    export_to_csv()
+    #x = get_layer_matches()
     print('fuck')

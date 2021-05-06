@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=neural-array
-#SBATCH --array=0-7
+#SBATCH --array=0-11
 #SBATCH --time=92:00:00
 #SBATCH --ntasks=1
 #SBATCH --mem=400000
@@ -13,7 +13,11 @@ fixres_resnext101_32x48d_wsl \
 resnet18-contrastive_multiview \
 resnet50-SIN \
 resnet50-SIN_IN \
-resnet50-SIN_IN_IN; do
+resnet50-SIN_IN_IN \
+CORnet-R \
+CORnet-R2 \
+CORnet-S \
+CORnet-Z; do
 	model_list[$i]="$model"
 	i=$[$i+1]
 done

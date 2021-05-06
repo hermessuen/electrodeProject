@@ -33,3 +33,5 @@ def read_commitment_scores():
             score = pickle.load(f)
             print('Fucking here')
 
+if __name__ == '__main__':
+    read_model_scores()
