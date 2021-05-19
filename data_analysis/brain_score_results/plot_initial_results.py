@@ -11,11 +11,11 @@ import data_analysis.brain_score_results.readCORnet as readCORnet
 
 models_with_scores = []
 
-scores_loc = 'D:/MIT/brain_score_results/'
+scores_loc = '/Users/hermessuen/Documents/KanwisherLab/brainscore_results/'
 layer_scores_loc = 'model_tools.brain_transformation.neural.LayerScores._call/'
 layer_selection_loc = 'model_tools.brain_transformation.neural.LayerSelection._call/'
-layer_match_loc = 'D:/MIT/brain_score_results/modelmeta-2019.json'
-model_loc = 'C:/Users/hsuen/Desktop/electrodeProject/model_list.pkl'
+layer_match_loc = '/Users/hermessuen/Documents/KanwisherLab/brainscore_results/modelmeta-2019.json'
+model_loc = '/Users/hermessuen/Documents/KanwisherLab/electrodeProject/model_list.pkl'
 
 with open(model_loc, 'rb') as f :
     models = pickle.load(f)

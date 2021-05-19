@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 import pickle
 
-scores_loc = 'D:/MIT/brain_score_results/'
+scores_loc = '/Users/hermessuen/Documents/KanwisherLab/brainscore_results/'
 layer_scores_loc = 'model_tools.brain_transformation.neural.LayerScores._call/'
 layer_selection_loc = 'model_tools.brain_transformation.neural.LayerSelection._call/'
 model_score_loc = 'brainscore.score_model/'
