@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=neural-array
-#SBATCH --array=0-17
+#SBATCH --array=0-3
 #SBATCH --time=92:00:00
 #SBATCH --ntasks=1
 #SBATCH --mem=400000
