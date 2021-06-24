@@ -34,4 +34,5 @@ def read_commitment_scores():
             print('Fucking here')
 
 if __name__ == '__main__':
-    read_model_scores()
+    #read_model_scores()
+    read_commitment_scores()

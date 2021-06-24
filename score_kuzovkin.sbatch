@@ -6,24 +6,10 @@
 #SBATCH --mem=400000
 
 i=0
-for model in fixres_resnext101_32x48d_wsl \
-inception_v1 \
-mobilenet_v1_0.25_192 \
-mobilenet_v1_1.0_128 \
-mobilenet_v1_1.0_192 \
-mobilenet_v2_0.75_128 \
-mobilenet_v2_0.75_160 \
-mobilenet_v2_0.75_192 \
-mobilenet_v2_1.0_224 \
-mobilenet_v2_1.0_96 \
-mobilenet_v2_1.3_224 \
-nasnet_large \
-pnasnet_large \
-resnet-101_v1 \
-resnet-101_v2 \
-resnet-152_v2 \
-resnet18-deepcluster \
-resnet18-local_aggregation; do
+for model in CORnet-S \
+CORnet-R \
+CORnet-Z \
+CORnet-R2; do
 	model_list[$i]="$model"
 	i=$[$i+1]
 done
